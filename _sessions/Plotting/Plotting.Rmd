@@ -3,7 +3,7 @@ title: "Plotting"
 author: "Explorative Datenanalyse mit R<br>
   <a href='https://therbootcamp.github.io'>The R Bootcamp</a>
   <br>
-  <a href='https://therbootcamp.github.io/EDA_2020Feb/'>
+  <a href='https://therbootcamp.github.io/EDA_2020Sep/'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://therbootcamp.github.io'>
@@ -15,7 +15,7 @@ author: "Explorative Datenanalyse mit R<br>
   <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
     <i class='fab fa-linkedin' style='font-size: .9em;'></i>
   </a>"
-date: "Februar 2020"
+date: "September 2020"
 output:
   xaringan::moon_reader:
     css: ["default", "baselrbootcamp.css"]
@@ -43,7 +43,7 @@ layout: true
     </a>
     <a href="https://therbootcamp.github.io/">
       <font color="#7E7E7E">
-       Explorative Datenanalyse mit R | Februar 2020
+       Explorative Datenanalyse mit R | September 2020
       </font>
     </a>
     </span>
@@ -77,17 +77,6 @@ library(ggthemes)
 basel = read_csv('1_Data/basel.csv')
 ```
 
-
-<p align="center">
-<br>
-<img src="image/plots.png" height="540px">
-<br>
-<font style="font-size:10px">from <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">r-statistics.co</a></font>
-</p>
-
-
-
----
 
 
 .pull-left4[
@@ -206,6 +195,7 @@ plot(x = baselers$groesse,
 ]
 
 
+
 ---
 
 # Probleme mit Base R plotting
@@ -232,18 +222,22 @@ plot(x = baselers$groesse,
 
 ---
 
-# Das mächtige `tidyverse`
+# Das mächtige <mono>tidyverse</mono>
 
-Das [`tidyverse`](https://www.tidyverse.org/) ist im Kern eine Sammlung hoch-performanter, nutzerfreundlicher Pakete, die speziell für eine effizientere Datenanalyse entwickelt wurden. 
-1. <high><mono>ggplot2</mono> für Grafiken</high>.
-2. <mono>dplyr</mono> für Datenverarbeitung.
-3. <mono>tidyr</mono> für Datenverarbeitung.
-4. `readr` für Daten I/O.
-5. `purrr` für funktionales Programmieren.
-6. `tibble` für moderne `data.frame`s.
-<br><br>
+<ul>
+  <li class="m1"><span>Das <a href="https://www.tidyverse.org/"><mono>tidyverse</mono></a> ist im Kern eine Sammlung hoch-performanter, nutzerfreundlicher Pakete, die speziell für eine effizientere Datenanalyse entwickelt wurden.</span></li>
+</ul>
 
-<table style="cellspacing:0; cellpadding:0; border:none;">
+<ol style="padding-left:72px">
+  <li><high><mono>ggplot2</mono> für Grafikeng</high>.</li>
+  <li><mono>dplyr</mono> für Datenverarbeitung.</li>
+  <li><mono>tidyr</mono> für Datenverarbeitung.</li>
+  <li><mono>readr</mono> für Daten I/O.</li>
+  <li><mono>purrr</mono> für funktionales Programmieren.</li>
+  <li><mono>tibble</mono> für moderne <mono>data_frame</mono>'s.</li>
+</ol>
+
+<table style="cellspacing:0; cellpadding:0; border:none;padding-top:20px">
   <col width="15%">
   <col width="15%">
   <col width="15%">
@@ -255,10 +249,10 @@ Das [`tidyverse`](https://www.tidyverse.org/) ist im Kern eine Sammlung hoch-per
     <img src="image/hex-ggplot2.png" height=160px></img>
     </td>
         <td bgcolor="white">
-    <img src="image/hex-dplyr.png"height=160px style="opacity:.2"></img>
+    <img src="image/hex-dplyr.png"height=160px styity:.2le="opac"></img>
     </td>
     <td bgcolor="white">
-    <img src="image/hex-tidyr.png"height=160px style="opacity:.2"></img>
+    <img src="image/hex-tidyr.png"height=160px styity:.2le="opac"></img>
     </td>
     <td bgcolor="white">
     <img src="image/hex-readr.png"height=160px style="opacity:.2"></img>
@@ -271,7 +265,6 @@ Das [`tidyverse`](https://www.tidyverse.org/) ist im Kern eine Sammlung hoch-per
     </td>
   </tr>
 </table>
-
 
 
 ---
@@ -1140,7 +1133,7 @@ goal
 
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/EDA_2020Feb/_sessions/Plotting/Plotting_practical.html">Practical</a></h1>
+<h1><a href="https://therbootcamp.github.io/EDA_2020Sep/_sessions/Plotting/Plotting_practical.html">Practical</a></h1>
 
 
 

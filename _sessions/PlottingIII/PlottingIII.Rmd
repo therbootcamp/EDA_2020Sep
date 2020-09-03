@@ -3,7 +3,7 @@ title: "Plotting III"
 author: "Explorative Datenanalyse mit R<br>
   <a href='https://therbootcamp.github.io'>The R Bootcamp</a>
   <br>
-  <a href='https://therbootcamp.github.io/EDA_2020Feb/'>
+  <a href='https://therbootcamp.github.io/EDA_2020Sep/'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://therbootcamp.github.io'>
@@ -15,7 +15,7 @@ author: "Explorative Datenanalyse mit R<br>
   <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
     <i class='fab fa-linkedin' style='font-size: .9em;'></i>
   </a>"
-date: "Februar 2020"
+date: "September 2020"
 output:
   xaringan::moon_reader:
     css: ["default", "baselrbootcamp.css"]
@@ -43,7 +43,7 @@ layout: true
     </a>
     <a href="https://therbootcamp.github.io/">
       <font color="#7E7E7E">
-       Explorative Datenanalyse mit R | Februar 2020
+       Explorative Datenanalyse mit R | September 2020
       </font>
     </a>
     </span>
@@ -158,7 +158,7 @@ library(gridExtra)
     <li><span><high>Erklärend</high></span></li>
   </ul>
   <br>
-  <li class="m1"><span>Audience</span></li>
+  <li class="m2"><span>Audience</span></li>
   <ul class="level">
     <li><span>Vorwissen</span></li>
     <li><span>Erwartungen</span></li>
@@ -183,7 +183,7 @@ library(gridExtra)
 .pull-left4[
 
 <ul>
-  <li class="m1"><span><high>Gedächtnis-</high> und <high>Aufmerksamkeitspanne</high> von Menschen sind limitiert.</span></li>
+  <li class="m1"><span><high>Gedächtnis-</high> und <high>Aufmerksamkeitspanne</high> von Menschen sind limitiert.</span></li><br>
   <li class="m2"><span>Informationsverarbeitung beeinflusst durch:</span></li>
   <ul class="level">
     <span><li><high>Erwartungen</high> und Vorwissen</span></li>
@@ -1025,4 +1025,4 @@ class: middle, center
 
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/EDA_2020Feb/_sessions/PlottingIII/PlottingIII_practical.html">Practical</a></h1>
+<h1><a href="https://therbootcamp.github.io/EDA_2020Sep/_sessions/PlottingIII/PlottingIII_practical.html">Practical</a></h1>
