@@ -4,7 +4,7 @@ author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0
   <tr style='border:none'>
     <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
       <font style='font-style:normal'>Explorative Datenanalyse mit R</font><br>
-      <a href='https://therbootcamp.github.io/EDA_2020Feb/'>
+      <a href='https://therbootcamp.github.io/EDA_2020Sep/'>
         <i class='fas fa-clock' style='font-size:.9em;' ></i>
       </a>
       <a href='https://therbootcamp.github.io'>
@@ -35,8 +35,8 @@ knitr::opts_chunk$set(comment = NA,
                       fig.width = 6, 
                       fig.height = 6,
                       fig.align = 'center',
-                      echo = TRUE, 
-                      eval = TRUE, 
+                      echo = FALSE, 
+                      eval = FALSE, 
                       warning = FALSE,
                       message = FALSE)
 
@@ -61,14 +61,14 @@ In diesem Practical wirst du das Transformieren, Gruppieren und Analysieren von 
 
 Am Ende des Practicals wirst du wissen wie man:
 
-1. Daten transformiert
-2. Daten gruppiert und deskriptive Statistiken berechnen kann
+1. Daten transformiert.
+2. Daten gruppiert und deskriptive Statistiken berechnen kann.
 
 ## Aufgaben
 
 ### A - Setup
 
-1. Öffne dein `TheRBootcamp` R project. Es sollte bereits die Ordner `1_Data` und `2_Code` enthalten. Stelle sicher, dass du alle Datensätze, welche im `Datensätze` Tab aufgelisted sind, in deinem `1_Data` Ordner hast. 
+1. Öffne dein `TheRBootcamp` R project. Es sollte bereits die Ordner `1_Data` und `2_Code` enthalten. 
 
 2. Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und "Wrangling II Practical" als Kommentare an den Anfang des Skripts.
 
@@ -80,7 +80,7 @@ Am Ende des Practicals wirst du wissen wie man:
 
 3. Speichere das neue Skript unter dem Namen `wrangling_II_practical.R` im `2_Code` Ordner.
 
-4. Lade das `tidyverse` Paket.
+4. Lade das `tidyverse`.
 
 ```{r, eval = FALSE, echo = TRUE}
 # Pakete laden
@@ -93,23 +93,22 @@ library(tidyverse)
 
 ### B - Transformation von *Long* zu *Wide* Format 
 
-In diesem Practical verwenden wir zunächst den `bevoelkerung.csv` Datensatz. Er enthält die Einwohnerzahlen verschiedener Schweizer Städte von 1930 bis 2011. Im `Datensätze` Tab findest du eine Auflistung und eine kurze Beschreibung der im Datensatz enthaltenen Variablen. 
+In diesem Abschnitt arbeitest du zunächst mit dem `bevoelkerung.csv` Datensatz. Er enthält die Einwohnerzahlen verschiedener Schweizer Städte von 1930 bis 2011. Im `Datensätze` Tab findest du eine Auflistung und eine kurze Beschreibung der im Datensatz enthaltenen Variablen. 
 
-5. Lese den Datensatz mit der `read_csv()` Funktion in R ein und speichere ihn unter dem Namen `bevoelkerung`.
+1. Lese den Datensatz mit der `read_csv()` Funktion in R ein und speichere ihn unter dem Namen `bevoelkerung`.
 
 ```{r eval = FALSE, echo = TRUE}
 bevoelkerung <- read_csv(file = "1_Data/bevoelkerung.csv")
 ```
 
-6. Mache dich mit dem Datensatz vertraut in dem du die ersten paar Zeilen (`print()`) und die Variablennamen (`names()`) anschaust.
+2. Mache dich mit dem Datensatz vertraut in dem du die ersten paar Zeilen (`print()`) und die Variablennamen (`names()`) anschaust.
 
 ```{r}
 names(bevoelkerung)
 bevoelkerung
 ```
 
-
-7. Im Moment sind die Daten so angeordnet, dass jedes Jahr eine einzelne Spalte hat, also im *Wide* Format; wir brauchen sie aber im *Long* format, z.B. fürs Plotting. Verwende `pivot_longer()` um das Format zu wechseln. Verwende `"st_wbev_2011"` und `"st_wbev_2001"` für das `cols` Argument und `"jahr"` das `names_to` Argument und speichere das Resultat als neues Objekt `bevoelkerung_long` ab.
+3. Im Moment sind die Daten so angeordnet, dass jedes Jahr eine einzelne Spalte hat, d.h. es liegt ein *Wide* Format vor; wir wollen sie aber im *Long* format. Verwende `pivot_longer()` um das Format zu wechseln. Verwende `"st_wbev_2011"` und `"st_wbev_2001"` für das `cols` Argument und `"jahr" für` das `names_to` Argument und speichere das Resultat als neues Objekt `bevoelkerung_long` ab.
 
 ```{r eval = FALSE, echo = TRUE}
 # Transofmation vom Wide ins Long Format
@@ -124,15 +123,15 @@ bevoelkerung_long <- bevoelkerung %>%
 
 ```
 
-8. Printe den neu erstellten Datensatz an. Alles wie erwartet?
+4. Printe den neu erstellten Datensatz. Alles wie erwartet?
 
-9. Nun wollen wir nicht nur die Jahre 2001 und 2011, sondern alle im Datensatz vorhandenen Jahre ins Long Format bringen. Schaue dir nochmals die Namen der Spalten an.
+5. Nun bringe nicht nur die Jahre 2001 und 2011, sondern alle im Datensatz vorhandenen Jahre ins Long Format. Schaue dir zunächst nochmals die Namen der Spalten mit `names()` an.
 
 ```{r}
 names(bevoelkerung)
 ```
 
-10. Jede Jahr-Variable hat die gleiche Struktur, nämlich `st_wbev_XXX`. Das bedeutet, dass wir einfach `starts_with()` Funktion zur Variablenauswahl verwenden können. Benutze `pivot_longer()` und `starts_with()` um alle Jahr-Variablen zu transformieren.
+6. Jede Jahr-Variable hat die gleiche Struktur, nämlich `st_wbev_XXX`. Das bedeutet, dass du die sehr hilfreiche `starts_with()` Funktion zur Variablenauswahl verwenden kannst. Benutze `pivot_longer()` und `starts_with()` um alle Jahr-Variablen zu transformieren.
 
 ```{r eval = FALSE, echo = TRUE}
 # Transofmation vom Wide ins Long Format
@@ -145,9 +144,9 @@ bevoelkerung_long <- bevoelkerung %>%
   pivot_longer(cols = starts_with("st_"), names_to = "jahr")
 ```
 
-11. Printe nochmal `bevoelkerung_long`.
+7. Printe nochmals `bevoelkerung_long`.
 
-12. Die Einwohnerzahl ist im neuen Datensatz mi dem Standardwert `value` benannt. Führe nun nochmal die `pivot_longer` Funktion aus, verwende nun aber auch noch das `values_to` Argument um die neue Spalte `einwohner` zu nennen. 
+8. Die Einwohnerzahl ist im neuen Datensatz mi dem Standardwert `value` benannt. Führe nun nochmal die `pivot_longer` Funktion aus, verwende nun aber auch noch das `values_to` Argument um die neue Spalte `einwohner` zu nennen. 
 
 ```{r eval = FALSE, echo = TRUE}
 # Transofmation vom Wide ins Long Format
@@ -160,19 +159,20 @@ bevoelkerung_long <- bevoelkerung %>%
   pivot_longer(cols = starts_with("st_"), names_to = "jahr", values_to = "einwohner")
 ```
 
-13. Schaue dir das Resultat an. Alles in Ordnung?
+9. Schaue dir das Resultat an. Alles in Ordnung?
 
-14. Verwende nun das `names_prefix` Argument um die Präfixe der Jahreszahlen automatisch zu entfernen.  
+10. Verwende nun das `names_prefix` Argument um die Präfixe der Jahreszahlen automatisch zu entfernen. Der `character`-String der für `names_prefix` bereit gestellt wird, wird vom Beginn der Variablennamen entfernt. 
 
 ```{r}
 bevoelkerung_long <- bevoelkerung %>%
-  pivot_longer(starts_with("st_"), names_to = "jahr", values_to = "einwohner",
+  pivot_longer(starts_with("st_"), names_to = "jahr", 
+               values_to = "einwohner",
                names_prefix = "st_wbev_")
 ```
 
 ### C - Transformation von *Long* zu *Wide* Format 
 
-1 Lass uns nun so tun, als ob wir die Daten im Long Format (`bevoelkerung_long`) bekommen hätten und sie ins Wide Format umwandeln müssten. Verwende die `pivot_wider()` Funktion und den Argumenten `names_from` und `values_from` die Spalten `jahr` und `einwohner` zu. Speichere das Ergebnis als `bevoelkerung_wide` ab.
+1. Nun nimm an, dass du die Daten als `bevoelkerung_long` im Long Format bekommen hättest und sie ins Wide Format umwandeln müsstest. Verwende die `pivot_wider()` Funktion und den Argumenten `names_from` und `values_from` die Spalten `jahr` und `einwohner` zu. Speichere das Ergebnis als `bevoelkerung_wide` ab.
 
 ```{r eval = FALSE, echo = TRUE}
 # Transofmation vom Long ins Wide Format
@@ -187,7 +187,7 @@ bevoelkerung_wide <- bevoelkerung_long %>%
 
 2. Vergleiche `bevoelkerung_wide` mit `bevoelkerung`. War die Rücktransformation erfolgreich? Was fehlt?
 
-3. Um die zuvor entfernten Präfixe wieder bei den Variablennamen hinzuzufügen, kannst du das `names_prefix` argument in `pivot_wider()` verwenden. Benutze `names_prefix` um `"st_wbev_"` als Präfix hinzuzufügen. 
+3. Um die zuvor entfernten Präfixe wieder bei den Variablennamen hinzuzufügen, kannst du das `names_prefix` argument in `pivot_wider()` verwenden. Benutze `names_prefix` um `"st_wbev_"` als Präfix wieder hinzuzufügen. 
 
 ```{r}
 bevoelkerung_wide <- bevoelkerung_long %>%
@@ -197,10 +197,9 @@ bevoelkerung_wide <- bevoelkerung_long %>%
 
 ### D - Wiederholung Wrangling I
 
-Für den Rest des Practicals verwenden wir den `kc_house.csv` Datensatz. Er enthält Verkaufspreise von Häusern in King County, Washington. Aufgelistet sind Häuser, welche zwischen Mai 2014 und Mai 2015 verkauft wurden. Nebst den Verkaufspreisen enthält der Datensatz Spezifikationen der Häuser, z.B. die Anzahl Zimmer eines Hauses. 
+Für den Rest des Practicals arbeitst du mit dem `kc_house.csv` Datensatz. Er enthält Verkaufspreise von Häusern in King County, Washington. Aufgelistet sind Häuser, welche zwischen Mai 2014 und Mai 2015 verkauft wurden. Nebst den Verkaufspreisen enthält der Datensatz Spezifikationen der Häuser, z.B. die Anzahl Zimmer eines Hauses. 
 
 1. Lese den Datensatz mit der `read_csv()` Funktion in R ein und speichere ihn unter dem Namen `kc_house`.
-
 
 ```{r, eval = FALSE, echo = TRUE}
 kc_house <- read_csv(file = "1_Data/kc_house.csv")
@@ -213,7 +212,7 @@ kc_house
 summary(kc_house)
 ```
 
-3. Da es sich um einen US Datensatz handelt, sind die Flächenangaben in Quadratfuss angegeben. Wir als "rest of the world" sind natürlich es eher gewohnt in Quadratmeter zu denken. Kreiere dazu drei neue Variablen `qm_wohnraum`, `qm_dachstock` und `qm_keller`, welche die jeweilige Raumgrösse in Quadratmeter angeben. Ein Quadratfuss entspricht 0.093 Quadratmeter.
+3. Da es sich um einen US Datensatz handelt, sind die Flächenangaben in Quadratfuss angegeben. Wir als "rest of the world" sind es natürlich eher gewohnt in Quadratmeter zu denken. Kreiere dazu drei neue Variablen `qm_wohnraum`, `qm_dachstock` und `qm_keller`, welche die jeweilige Raumgrösse in Quadratmeter angeben. Ein Quadratfuss entspricht 0.093 Quadratmeter.
 
 ```{r eval = FALSE, echo = TRUE}
 kc_house <- kc_house %>%
@@ -254,7 +253,7 @@ kc_house <- kc_house %>%
 mean(kc_house$preis)
 ```
 
-2. Berechne wieder den Mittelwert aber verwende diesmal `summarise()` Funktion. Worin besteht der Unterschied der Resultate dieser und der vorherigen Aufgabe?
+2. Berechne wieder den Mittelwert aber verwende diesmal `summarise()` Funktion. Besteht ein Unterschied in den Resultaten dieser und der vorherigen Aufgabe?
 
 ```{r, echo = TRUE, eval = FALSE}
 kc_house %>%
@@ -327,7 +326,7 @@ kc_house %>%
   summarise(N = n())
 ```
 
-2. Ergänze nun einen Eintrag in `summarise()` die den mittlere Verkaufspreis von Villen und normalen Häusern (nicht-Villen) berechnet?
+2. Ergänze nun einen Eintrag in `summarise()`, der den mittlere Verkaufspreis von Villen und normalen Häusern (nicht-Villen) berechnet?
 
 ```{r}
 kc_house %>%
@@ -336,7 +335,7 @@ kc_house %>%
             preis_mean = mean(preis))
 ```
 
-3. Verwende nun `group_by()` und `summarise()` um auch noch das Maximum zu bestimmen.
+3. Verwende nun `group_by()` und `summarise()`, um auch noch das Maximum zu bestimmen.
 
 ```{r}
 kc_house %>%
@@ -356,15 +355,6 @@ kc_house %>%
             wohnraum = mean(qm_wohnraum))
 ```
 
-5. Kreiere eine neue Variable `baujahrzehnt`, welche angibt, in welchem Jahrzehnt ein Haus gebaut wurde und erstelle dann die Tabelle der letzten Aufgabe Gruppiert nach dieser neuen Variable. Tipp: die `floor()` Funktion rundet eine Zahl auf die nächst kleinere ganze Zahl ab.
-
-```{r}
-kc_house %>%
-  mutate(baujahrzehnt = floor(baujahr / 10) * 10) %>%
-  group_by(baujahrzehnt) %>%
-  summarise(N = n(),
-            wohnraum = mean(qm_wohnraum))
-```
 
 ### G - Mehrere Gruppen
 

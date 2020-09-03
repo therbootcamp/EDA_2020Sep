@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Daten</title>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
 class: center, middle, inverse, title-slide
 
 # Daten
-### Explorative Datenanalyse mit R<br> <a href='https://therbootcamp.github.io'>The R Bootcamp</a> <br> <a href='https://therbootcamp.github.io/EDA_2020Feb/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
-### Februar 2020
+### Explorative Datenanalyse mit R<br> <a href='https://therbootcamp.github.io'>The R Bootcamp</a> <br> <a href='https://therbootcamp.github.io/EDA_2020Sep/'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a>  <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a>
+### September 2020
 
 ---
 
@@ -34,7 +34,7 @@ layout: true
     &lt;/a&gt;
     &lt;a href="https://therbootcamp.github.io/"&gt;
       &lt;font color="#7E7E7E"&gt;
-       Explorative Datenanalyse mit R | Februar 2020
+       Explorative Datenanalyse mit R | September 2020
       &lt;/font&gt;
     &lt;/a&gt;
     &lt;/span&gt;
@@ -76,7 +76,7 @@ layout: true
 - &lt;span&gt;Kann alle Daten beinhalten, inkl. `list`s&lt;/span&gt;
 - &lt;span&gt;Nützlich für komplexe Funktionsoutputs&lt;/span&gt;
 
-&lt;high&gt;`data_frame`&lt;/high&gt; - R's Tabelle
+&lt;high&gt;`data_frame`&lt;/high&gt;, &lt;high&gt;`tibble`&lt;/high&gt; - R's Tabelle
 - &lt;span&gt;Spezialfall einer `list`&lt;/span&gt;
 - &lt;span&gt;R's `Tidy`-Format für Daten
 
@@ -96,7 +96,7 @@ layout: true
 
 .pull-left45[
 
-# `data_frame`
+# `data_frame`, `tibble`
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;Eine &lt;mono&gt;list&lt;/mono&gt;e bestehend aus &lt;high&gt;&lt;mono&gt;vector&lt;/mono&gt;en gleicher Länge&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
@@ -129,9 +129,9 @@ basel
 ## # A tibble: 10,000 x 20
 ##      id geschlecht alter groesse gewicht
 ##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1     1 F             87    165     NA  
-## 2     2 M             54    175.    85.6
-## 3     3 F             34    147.    53.9
+## 1     1 W             44    174     NA  
+## 2     2 M             65    180     85.6
+## 3     3 M             31    168     53.9
 ## 4     4 M             31    166.   105  
 ## 5     5 M             24    180.   102. 
 ## # … with 9,995 more rows, and 15 more
@@ -179,7 +179,7 @@ basel$alter
 ```
 
 ```
-##  [1] 87 54 34 31 24 59 48 53 50 62 73 53
+##  [1] 44 65 31 31 24 59 48 53 50 62 73 53
 ## [13] 38 26
 ##  [ reached getOption("max.print") -- omitted 9986 entries ]
 ```
@@ -226,9 +226,9 @@ basel
 ## # A tibble: 10,000 x 20
 ##      id geschlecht alter groesse gewicht
 ##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1     1 F             87    165     NA  
-## 2     2 M             54    175.    85.6
-## 3     3 F             34    147.    53.9
+## 1     1 W             44    174     NA  
+## 2     2 M             65    180     85.6
+## 3     3 M             31    168     53.9
 ## 4     4 M             31    166.   105  
 ## 5     5 M             24    180.   102. 
 ## # … with 9,995 more rows, and 15 more
@@ -273,56 +273,10 @@ basel
   ]
 
 
----
-
-.pull-left45[
-
-# Zugriff / Ändern via `[ ]`
-
-
-```r
-# Extrahiere die Variable Alter
-alter &lt;- basel$alter
-alter
-```
-
-
-```
-##  [1] 87 54 34 31 24 59 48 53 50 62
-```
-
-
-```r
-# Extrahiere zweiten Wert
-alter[2]
-```
-
-```
-## [1] 54
-```
-
-
-```r
-# Ändere zweiten Wert
-alter[2] &lt;- 100
-alter
-```
-
-Mehr Info [hier](http://rspatial.org/intr/rst/4-indexing.html).
-
-]
-
-.pull-right4[
-
-  &lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-  &lt;img src="image/vector.png"&gt;&lt;/img&gt;
-  ]
-
 
 ---
 
-# Datentyp: `numeric`
+# `numeric`
 
 .pull-left45[
 
@@ -336,7 +290,7 @@ basel$alter
 
 
 ```
-##  [1] 87 54 34 31 24 59 48 53 50 62
+##  [1] 44 65 31 31 24 59 48 53 50 62
 ```
 
 
@@ -367,7 +321,7 @@ is.numeric(basel$alter)
 
 ---
 
-# Datentyp: `character`
+# `character`
 
 .pull-left45[
 
@@ -381,7 +335,7 @@ basel$geschlecht
 
 
 ```
-## [1] "F" "M" "F" "M" "M" "M" "F" "F"
+## [1] "W" "M" "M" "M" "M" "M" "W" "W"
 ```
 
 
@@ -409,7 +363,7 @@ basel$bildung
 
 ---
 
-# Datentyp: `character`
+# `character`
 
 .pull-left45[
 
@@ -423,7 +377,7 @@ basel$alter
 
 
 ```
-##  [1] 87 54 34 31 24 59 48 53 50 62
+##  [1] 44 65 31 31 24 59 48 53 50 62
 ```
 
 
@@ -434,7 +388,7 @@ as.character(basel$alter)
 
 
 ```
-##  [1] "87" "54" "34" "31" "24" "59" "48"
+##  [1] "44" "65" "31" "31" "24" "59" "48"
 ##  [8] "53" "50" "62"
 ```
 
@@ -447,7 +401,7 @@ as.character(basel$alter)
 
 ---
 
-# Datentyp: `logical`
+# `logical`
 
 .pull-left45[
 
@@ -461,20 +415,20 @@ basel$geschlecht == "M"
 
 
 ```
-##  [1] FALSE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
 ##  [7] FALSE FALSE  TRUE FALSE
 ```
 
 
 ```r
 # Welche Werte in Alteer sind kleiner 30
-basel$alter &lt; 30
+basel$alter &lt; 50
 ```
 
 
 ```
-##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE
-##  [7] FALSE FALSE FALSE FALSE
+##  [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE
+##  [7]  TRUE FALSE FALSE FALSE
 ```
 
 ]
@@ -486,7 +440,7 @@ basel$alter &lt; 30
 
 ---
 
-# Datentyp: `logical`
+# `logical`
 
 .pull-left45[
 
@@ -505,6 +459,54 @@ basel$alter &lt; 30
 .pull-right4[
   &lt;img src="image/vector_types_logical.png"&gt;&lt;/img&gt;
   ]
+
+---
+
+.pull-left45[
+
+# Zugriff / Ändern via `[ ]`
+
+
+```r
+# Extrahiere die Variable Alter
+alter &lt;- basel$alter
+alter
+```
+
+
+```
+##  [1] 44 65 31 31 24 59 48 53 50 62
+```
+
+
+```r
+# Extrahiere zweiten Wert
+alter[2]
+```
+
+```
+## [1] 65
+```
+
+
+```r
+# Ändere zweiten Wert
+alter[2] &lt;- 100
+alter
+```
+
+Mehr Info [hier](http://rspatial.org/intr/rst/4-indexing.html).
+
+]
+
+.pull-right4[
+
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;img src="image/vector.png"&gt;&lt;/img&gt;
+  ]
+
+
 
 ---
 
@@ -648,6 +650,8 @@ basel
   &lt;li class="m1"&gt;&lt;span&gt;Finde den Filepath mittels RStudio's &lt;high&gt;Auto-Complete&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m2"&gt;&lt;span&gt;Setze den Cursor zwischen Anführungszeichen und drücke &lt;highm&gt;Tab&lt;/highm&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;br&gt;
 
 &lt;p align="center"&gt;
   &lt;img src="image/tab.png" height="150px"&gt;&lt;/img&gt;
@@ -882,7 +886,7 @@ read_html("https://en.wikipedia.org/wiki/R_(programming_language)") %&gt;%
 ```
 
 ```
-## # A tibble: 17 x 3
+## # A tibble: 21 x 3
 ##    Release Date        Description                                                        
 ##    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                                              
 ##  1 0.16    ""          "This is the last alpha version developed primarily by Ihaka and G…
@@ -894,8 +898,8 @@ read_html("https://en.wikipedia.org/wiki/R_(programming_language)") %&gt;%
 ##  7 1.8     "2003-10-0… "Introduced a flexible condition handling mechanism for signalling…
 ##  8 2.0     "2004-10-0… "Introduced lazy loading, which enables fast loading of data with …
 ##  9 2.1     "2005-04-1… "Support for UTF-8 encoding, and the beginnings of internationaliz…
-## 10 2.11    "2010-04-2… "Support for Windows 64 bit systems."                              
-## # … with 7 more rows
+## 10 2.6.2   "2008-02-0… "Last version to support Windows 95, 98, Me and NT 4.0[51]"        
+## # … with 11 more rows
 ```
 
 
@@ -953,16 +957,13 @@ data &lt;- jsonlite::read_json(file, ...)
 
 class: middle, center
 
-&lt;i&gt;Download&lt;/i&gt;
-
-&lt;h1&gt;&lt;a href="https://raw.githubusercontent.com/therbootcamp/EDA_2020Feb/master/1_Data/TheRBootcamp_EDA_2020Feb_data.zip" download&gt;Daten&lt;/a&gt;&lt;/h1&gt;
-
+&lt;h1&gt;&lt;a href="https://raw.githubusercontent.com/therbootcamp/EDA_2020Feb/master/TheRBootcamp.zip" download&gt;Projekt&lt;/a&gt;&lt;/h1&gt;
 
 ---
 
 class: middle, center
 
-&lt;h1&gt;&lt;a href="https://therbootcamp.github.io/EDA_2020Feb/_sessions/Data/Data_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://therbootcamp.github.io/EDA_2020Sep/_sessions/Data/Data_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -1011,6 +1012,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -1028,17 +1055,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {

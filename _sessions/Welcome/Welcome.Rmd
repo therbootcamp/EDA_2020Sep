@@ -3,7 +3,7 @@ title: "Willkommen"
 author: "Explorative Datenanalyse mit R<br>
   <a href='https://therbootcamp.github.io'>The R Bootcamp</a>
   <br>
-  <a href='https://therbootcamp.github.io/EDA_2020Feb/'>
+  <a href='https://therbootcamp.github.io/EDA_2020Sep/'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://therbootcamp.github.io'>
@@ -15,7 +15,7 @@ author: "Explorative Datenanalyse mit R<br>
   <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
     <i class='fab fa-linkedin' style='font-size: .9em;'></i>
   </a>"
-date: "Februar 2020"
+date: "September 2020"
 output:
   xaringan::moon_reader:
     css: ["default", "baselrbootcamp.css"]
@@ -43,7 +43,7 @@ layout: true
     </a>
     <a href="https://therbootcamp.github.io/">
       <font color="#7E7E7E">
-       Explorative Datenanalyse mit R | Februar 2020
+       Explorative Datenanalyse mit R | September 2020
       </font>
     </a>
     </span>
@@ -59,28 +59,6 @@ options(digits = 4)
 
 knitr::opts_chunk$set(fig.align = 'center')
 ```
-
-
-
-.pull-left45[
-<br><br><br><br><br>
-#  Agenda und Materialien
-
-Klicke auf <high>"....running..."</high> auf unserer Website!
-
-<font style="font-size:28px"><a href="www.therbootcamp.com"><b>www.therbootcamp.com</b></a></font>
-
-]
-
-.pull-right5[
-
-<br><br>
-<iframe src="https://therbootcamp.github.io/EDA_2020Feb/" width="500" height="500"></iframe>
-
-]
-
-
----
 
 
 
@@ -113,7 +91,7 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 .pull-right7[
 <br>
 <p align = "center">
-<img src="http://sudeep.co/images/post_images/2018-02-09-Understanding-the-Data-Science-Lifecycle/chart.png" height="540"><br>
+<img src="https://i.pinimg.com/originals/17/17/87/1717877375f75969a93d9fc1eb79866a.jpg" height="540"><br>
 <font style="font-size:10px">from <a href="http://sudeep.co/">http://sudeep.co/</a></font>
 </p>
 ]
@@ -134,15 +112,13 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 
 .pull-left45[
 
-<i>"Each of the three data science disciplines has its own excellence. Statisticians bring rigor, ML engineers bring performance, and analysts bring speed."</i>
-
 <i>"Your analyst is the sprinter; their ability to quickly help you see and summarize what-is-here is a superpower for your process."</i>
 
 <i>"The only roles every business needs are decision-makers and analysts. If you lose your analysts, who will help you figure out which problems are worth solving?"</i>
 
 <a href="https://hbr.org/2018/12/what-great-data-analysts-do-and-why-every-organization-needs-them">Harvard Business Review</a><br><a href="https://towardsdatascience.com/secret-paragraphs-from-hbrs-analytics-ddd2ead761d4">Towards Data Science</a>
 
-<br>
+<br><br><br><br><br><br>
 <b>Cassie Kozyrkov</b><br>
 Chief Decision Scientist at Google
 
@@ -153,7 +129,7 @@ Chief Decision Scientist at Google
 
 <p align = "center">
 <img src="image/cassie.png"><br>
-<font style="font-size:10px">from <a href="https://medium.com/@kozyrkov"medium.com</a></font>
+<font style="font-size:10px">from <a href="https://medium.com/@kozyrkov">medium.com</a></font>
 </p>
 
 ]
@@ -199,14 +175,12 @@ Chief Decision Scientist at Google
 
 <ul>
   <li class="m1"><span><high>Workshop</high></span></li>
-  <br><br>
   <ul class="level">
     <li><span>1 Block zu Data IO</span></li>
     <li><span>2 Blöcke zu Wrangling</span></li>
     <li><span>3 Blöcke zu Plotting</span></li>
-  </ul>
-  <li class="m2"><span><high>Block</high>
-  <br><br>
+  </ul><br>
+  <li class="m2"><span><high>Block</high></span></li>
   <ul class="level">
     <li><span>Folien-basierten Einführung</span></li>
     <li><span>Viele Übungen</span></li>
@@ -329,7 +303,8 @@ Chief Decision Scientist at Google
 </table>
 <br>
 
----
+
+<!---
 
 .pull-left4[
 
@@ -354,14 +329,13 @@ Chief Decision Scientist at Google
 
 ]
 
-
----
-
 # Photos
 
 <p align="center">
 <img src="image/camera.png" height="400px">
 </p>
+
+--->
 
 ---
 
@@ -394,4 +368,4 @@ Chief Decision Scientist at Google
 ---
 class: middle, center
 
-<h1><a href=https://therbootcamp.github.io/EDA_2020Feb/index.html>Agenda</a></h1>
+<h1><a href=https://therbootcamp.github.io/EDA_2020Sep/index.html>Agenda</a></h1>

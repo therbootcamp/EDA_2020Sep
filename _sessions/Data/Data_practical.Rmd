@@ -4,7 +4,7 @@ author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0
   <tr style='border:none'>
     <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
       <font style='font-style:normal'>Explorative Datenanalyse mit R</font><br>
-      <a href='https://therbootcamp.github.io/EDA_2020Feb/'>
+      <a href='https://therbootcamp.github.io/EDA_2020Sep/'>
         <i class='fas fa-clock' style='font-size:.9em;' ></i>
       </a>
       <a href='https://therbootcamp.github.io'>
@@ -36,8 +36,8 @@ knitr::opts_chunk$set(comment = NA,
                       fig.width = 6, 
                       fig.height = 6,
                       fig.align = 'center',
-                      echo = TRUE, 
-                      eval = TRUE, 
+                      echo = FALSE, 
+                      eval = FALSE, 
                       warning = FALSE)
 
 options(digits = 3)
@@ -71,7 +71,7 @@ Am Ende des Practicals wirst du wissen:
 
 ### A - Setup
 
-1. Öffne dein `TheRBootcamp` R project. Es sollte die Ordner `1_Data` und `2_Code` enthalten. Stelle sicher, dass du alle Datensätze, welche im `Datensätze` Tab aufgelisted sind, in deinem `1_Data` Ordner hast. 
+1. Öffne dein `TheRBootcamp` R project. Es sollte die Ordner `1_Data` und `2_Code` enthalten.  
 
 2. Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und "Daten Practical" als Kommentare an den Anfang des Skripts.
 
@@ -83,7 +83,7 @@ Am Ende des Practicals wirst du wissen:
 
 3. Speichere das neue Skript unter dem Namen `daten_practical.R` im `2_Code` Ordner.
 
-4. Lade die `tidyverse`, `haven`, und `readxl` Pakete.
+4. Lade die `tidyverse`, `haven`, und `readxl` Pakete. Falls eines der Pakete noch nicht installiert ist, installiere es zunächst mit `install.packages("PAKETNAME"s)`. 
 
 ```{r, eval = FALSE, echo = TRUE}
 # Pakete laden
@@ -102,7 +102,7 @@ library(readxl)
 
 ### B - Kreiere Vektoren
 
-Die folgende Tabelle zeigt die Daten von fünf hypothetischenn Baselern. Im ersten Teil dieses Practicals ist es deine Aufgabe diese Tabelle nachzubauen und anschliessend zu analysieren. Wann immmer du `XX` siehst, bedeutet das, dass du etwas an dessen Stelle eintragen sollst. 
+Die folgende Tabelle zeigt die Daten von fünf hypothetischenn Baselern. Im ersten Teil dieses Practicals ist es deine Aufgabe diese Tabelle schritt für schritt nachzubauen und anschliessend zu analysieren. Wann immmer du `XX` siehst, bedeutet das, dass du etwas an dessen Stelle eintragen sollst. 
 
 *5 Baseler*
 
@@ -227,7 +227,7 @@ length(gewicht)
 
 ### C - Kreiere `tibbles`
 
-1. Verwende die Funktion `tibble()`, um einen data frame names `basel` zu erstellen, der die eben erstellten Vektoren enthält: `id`, `alter`, `geschlecht`, `groesse`, und `gewicht`. 
+1. Verwende die Funktion `tibble()`, um einen data frame namens `basel` zu erstellen, der die eben erstellten Vektoren enthält: `id`, `alter`, `geschlecht`, `groesse`, und `gewicht`. 
 
 ```{r, eval = FALSE, echo = TRUE}
 # Kreiere data frame aus den Vektoren
@@ -280,7 +280,7 @@ min(basel$alter)
 
 In diesem Abschnitt wirst du den bekannten `diamonds` Datensatz einlesen und bearbeiten. 
 
-1. Finde den Filepath zum `diomands.csv` Datensatz. Setze hierzu den Cursor zwischen zwei Anführungszeichen `""` und drücke &#8677; (tab). Speichere den Filepath in einem Objekt namens `diamonds_path`. 
+1. Finde den Filepath zum `diomands.csv` Datensatz. Setze hierzu den Cursor zwischen zwei Anführungszeichen `""` und drücke &#8677; (tab). Speichere den Filepath zunächst in einem eigenen Objekt namens `diamonds_path`. 
 
 ```{r, eval = F, echo =T}
 # Setze den Cursor zwischen "" und drücke tab
@@ -316,7 +316,7 @@ diamonds
 ```{r, eval = F, echo = T}
 # lese dimaonds nochmal ein, diesmal mit expliziten Spaltennamen
 diamonds <- read_csv(file = XX, 
-                     col_names = c('name_1','name_2','...'))  
+                     col_names = c('XX','XX','...'))  
 ```
 
 ```{r}
@@ -386,7 +386,7 @@ write_csv(x = diamonds, "1_Data/diamonds_sauber.csv")
 diamonds_clean <- read_csv(file = "1_Data/diamonds_sauber.csv")
 ```
 
-13. Jetzt wäre der Datensatz fertig für die Analyse. Exploriere ein wenig. Berechne deskriptive Statistiken für die verschiedenen Variablen. Du kannst mehr über die Variablen erfahren mit `?diamonds`. (Namen sind aus dem Englischen übersetzt.)
+13. Jetzt wäre der Datensatz fertig für die Analyse. Wenn du magst, exploriere ihn ein wenig. Berechne deskriptive Statistiken (`mean()`, `median()`, etc.) für die verschiedenen Variablen. Du kannst mehr über die Variablen erfahren mit `?diamonds`. (Namen sind aus dem Englischen übersetzt.)
 
 ```{r}
 # Deskriptive Statistiken
@@ -398,7 +398,7 @@ table(diamonds$klarheit)
 
 ### E - Logische Vektoren
 
-1. Logische Vektoren enthalten nur die Werte `TRUE` und `FALSE` (und `NA`s). Kreiere einen logischen Vektor names `teuer`, welcher `TRUE` enthält, wenn der `preis` des Diamanten teurer als \$10,000 ist, und `FALSE`, wenn er günstiger ist. Siehe Code. 
+1. Logische Vektoren enthalten nur die Werte `TRUE` und `FALSE` (und `NA`s). Kreiere einen logischen Vektor names `teuer`, welcher `TRUE` enthält, wenn der `preis` des Diamanten teurer als \$10,000 ist, und `FALSE`, wenn er günstiger ist. Siehe Code template 
 
 ```{r, eval = FALSE, echo = TRUE}
 # Kreiere Vektor teuer
@@ -417,7 +417,7 @@ teuer <- diamonds$preis > 10000
 teuer
 ```
 
-3. Ergänze den Datensatz um die neue Variable `teuer`.
+3. Erweitere den Datensatz um die neue Variable `teuer`.
 
 ```{r, eval = FALSE, echo = TRUE}
 # Ergänze Vektor
@@ -458,7 +458,7 @@ mean(diamonds$karat > 1)
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Microsoft_Excel_2013_logo.svg/2000px-Microsoft_Excel_2013_logo.svg.png")
 ```
 
-In diesem Unterabschnitt liest du den ebenfalls sehr bekannten `titanic` Datensatz aus einem Excel Format und speicherst die Daten als `.csv`.
+In diesem Abschnitt liest du den ebenfalls sehr bekannten `titanic` Datensatz aus einem Excel Format und speicherst die Daten als `.csv`.
 
 1. Verwende die `read_excel()` Funktion, um den Datensatz `titanic.xls` als ein neues Objekt `titanic` einzulesen. 
 
@@ -480,7 +480,7 @@ titanic
 dim(titanic)
 ```
 
-3. Verwende `table()` um auszuzählen wie viele Leute das Unglück der Titanic überlebt haben (Spalte `survived`). 
+3. Verwende `table()` um auszuzählen wie viele Leute das Unglück der Titanic überlebt haben (Variable `survived`). 
 
 ```{r, eval = F, echo = T}
 # Wie viele haben überlebt?
@@ -492,7 +492,7 @@ table(titanic$XX)
 table(titanic$XX)
 ```
 
-4. Verwende nochmals `table()` um auszuzählen wie viele Leute in jeder der einzlenen Passagierklassen (Spalte `pclass`) das Unglück der Titanic überlebt haben. 
+4. Verwende nochmals `table()`, um auszuzählen wie viele Leute in jeder der einzelnen Passagierklassen (Variable `pclass`) das Unglück der Titanic überlebt haben. 
 
 ```{r, eval = F, echo = T}
 # Wie viele haben pro Passagierklasse überlebt?
@@ -504,7 +504,7 @@ table(titanic$XX, titanic$XX)
 table(titanic$pclass, titanic$survived)
 ```
 
-5. Verwende `write_csv()` um den Datensatz `titanic` als `.csv` auf in deinen `1_Data` Ordner zu schreiben. 
+5. Verwende `write_csv()`, um den Datensatz `titanic` als `.csv` auf in deinen `1_Data` Ordner zu schreiben. 
 
 ```{r, eval = FALSE}
 # Schreiben Daten als .csv
@@ -518,7 +518,7 @@ write_csv(x = titanic,
 knitr::include_graphics("http://www.sqlearn.gr/wp-content/uploads/2010/12/2000px-SPSS_logo.jpg")
 ```
 
-In diesem Unterabschnitt liest du den `sleep` Datensatz mit Informationen über das Schlafverhalten der Mitarbeiter der Universität Melbourne enthält aus einem SPSS format ein und speicherst die Daten als `.csv`.
+In diesem Abschnitt liest du den `sleep` Datensatz, welcher Informationen über das Schlafverhalten der Mitarbeiter der Universität Melbourne enthält, aus einem SPSS-Format ein und speicherst die ihn im `.csv`-Format.
 
 1. Verwende die `read_spss()` Funktion, um den Datensatz `sleep.sav` als ein neues Objekt `sleep` einzulesen. 
 
@@ -539,7 +539,7 @@ sleep
 dim(sleep)
 ```
 
-3. Verwende die `mean()` Funktion um auszuzählen wie viele alkoholische Getränke die  Mitarbeiter im Durchschnitt pro Tag zu sich nehmen (Spalte `alchohol`). Achte auf etwaige fehlende Werte!
+3. Verwende die `mean()` Funktion um auszuzählen wie viele alkoholische Getränke die Mitarbeiter im Durchschnitt pro Tag zu sich nehmen (Variable `alchohol`; Typo im Originaldatensatz). Achte auf etwaige fehlende Werte!
 
 ```{r}
 # Berechne die mittlere Anzahl drinks
@@ -570,7 +570,7 @@ sum(sleep$alchohol > 10, na.rm = TRUE)
 which(sleep$alchohol > 10)
 ```
 
-3. Nutze den Index der Person um dir, deren Geschlecht (`sex`) und Beziehungsstatus (`marital`) anzeigen zu lassen. Nutze hier die Klammern `[]`.
+3. Nutze den Index der Person, um dir deren Geschlecht (`sex`) und Beziehungsstatus (`marital`) anzeigen zu lassen. Nutze hier die Klammern `[]`.
 
 ```{r}
 # Geschlecht und Alter der Person
@@ -744,5 +744,5 @@ library(haven)
 
 ## Resourcen
 
-- Für eiene formale Einführung zu den Grundlagen schaut euch [introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) an.
+- Für eine formale Einführung zu den Grundlagen schaut euch [introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) an.
 - Für alles zu `tibble`s, Daten Lesen und Schreiben schaut euch Grolemund`s und Wickham's [R for Data Science](http://r4ds.had.co.nz/data-import.html) an.
