@@ -272,15 +272,13 @@ appointments <- appointments %>%
 
 ```{r, echo = TRUE, eval = FALSE}
 # Anteil nicht wahrgenommener Termine
-data_frame %>%
+appointments %>%
   filter(XX == XX) %>%
-  pull(XX) %>%
-  mean()
+  nrow()
 
-data_frame %>%
+appointments %>%
   filter(XX != XX) %>%
-  pull(XX) %>%
-  mean()
+  nrow()
 ```
 
 ```{r}
@@ -609,12 +607,12 @@ appointments_weather <- appointments %>%
 
 ```{r, echo = TRUE, eval = FALSE}
 # Anteil nicht wahrgenommener Termine
-data_frame %>%
+appointments_weather %>%
   filter(XX == XX) %>%
   pull(XX) %>%
   mean()
 
-data_frame %>%
+appointments_weather %>%
   filter(XX != XX) %>%
   pull(XX) %>%
   mean()
