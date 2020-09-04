@@ -68,6 +68,7 @@ basel$geschlecht[1:3] = c("W","M","M")
 basel$groesse[1:3] = c(174,180,168)
 ```
 
+<!---
 
 .pull-left45[
 
@@ -88,9 +89,8 @@ basel$groesse[1:3] = c(174,180,168)
   <img src="image/data_frame.png"></img>
 ]
 
+--->
 
-
----
 
 # 3 Klassen von Datenobjekten
 
