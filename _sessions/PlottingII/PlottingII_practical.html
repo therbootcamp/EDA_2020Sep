@@ -201,7 +201,7 @@ summary {
 <h1></h1>
 <div id="überblick" class="section level2">
 <h2>Überblick</h2>
-<p>In diesem Practical wirst du weiter üben mit <code>ggplot2</code> publikationsfertige Grafiken zu erstellen.</p>
+<p>In diesem Practical wirst du weiter üben mit <code>ggplot2</code> schöne Grafiken zu erstellen.</p>
 <p>Am Ende des Practicals wirst du wissen wie man:</p>
 <ol style="list-style-type: decimal">
 <li><code>facet</code>s benutzt.</li>
@@ -215,7 +215,7 @@ summary {
 <div id="a---setup" class="section level3">
 <h3>A - Setup</h3>
 <ol style="list-style-type: decimal">
-<li><p>Öffne dein <code>TheRBootcamp</code> R project. Es sollte die Ordner <code>1_Data</code> und <code>2_Code</code> enthalten. Stelle sicher, dass du alle Datensätze, welche im <code>Datensätze</code> Tab aufgelisted sind, in deinem <code>1_Data</code> Ordner hast.</p></li>
+<li><p>Öffne dein <code>TheRBootcamp</code> R project. Es sollte die Ordner <code>1_Data</code> und <code>2_Code</code> enthalten.</p></li>
 <li><p>Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und “PlottingII Practical” als Kommentare an den Anfang des Skripts.</p></li>
 </ol>
 <pre class="r"><code>## NAME
@@ -236,7 +236,7 @@ summary {
 </div>
 <div id="c---facets" class="section level3">
 <h3>C - <code>facet</code>s</h3>
-<p>In diesem Abschnitt analysierst du den Zusammenhang zwischen dem Anteil der Bevölkerung, die mit der Metro fahren, und verschiedenen Verbrechen.</p>
+<p>In diesem Abschnitt analysierst du den Zusammenhang zwischen dem Anteil der Bevölkerung, die mit der Metro fahren, und der Häufigkeit verschiedener Verbrechen.</p>
 <ol style="list-style-type: decimal">
 <li>Verwende den folgenden Code um die Beziehung zwischen <code>prozent_metro</code> (x-Achse) und <code>haeufigkeit</code> (y-Achse) zu plotten.</li>
 </ol>
@@ -248,8 +248,8 @@ summary {
   theme_minimal()</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Sieht noch nicht so informativ aus. Ergänze <code>scale_x_continuous(trans = 'pseudo_log')</code> und <code>scale_y_continuous(trans = 'pseudo_log')</code> um die y und x-Achse zu stauchen. Später noch mehr zu Skalierungen.</p></li>
-<li><p>Besser, oder? Jetzt zeichnet sich ein schwach positiver Zusammenhang ab. Könnte das anders aussehen, wenn man die verschiedenen Klassen von Verbrechen differenziert? Versuche dies mal über verschiedene Farben indem du <code>verbrechen</code> dem <code>col</code> Argument in <code>aes()</code> zuweist.</p></li>
-<li><p>Nicht wirklich informativ, oder? Anstatt mit <code>col</code> versuche nun die verschiedenen Verbrechen mit <code>facet_wrap()</code> zu differenzieren. Siehe unten.</p></li>
+<li><p>Besser, oder? Jetzt zeichnet sich ein schwach positiver Zusammenhang ab. Könnte das anders aussehen, wenn man die verschiedenen Klassen von Verbrechen differenziert? Versuche dies mal mit der Verwendung verschiedener Farben indem du <code>verbrechen</code> dem <code>col</code> Argument in <code>aes()</code> zuweist.</p></li>
+<li><p>Wieder nicht wirklich informativ, oder? Anstatt mit <code>col</code> versuche nun die verschiedenen Verbrechen mit <code>facet_wrap()</code> zu differenzieren. Siehe unten.</p></li>
 </ol>
 <pre class="r"><code>ggplot(XX, aes(x = XX, 
                y = XX)) +
@@ -260,7 +260,7 @@ summary {
   scale_y_continuous(trans = &#39;pseudo_log&#39;) +
   facet_wrap(~ XX)</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Es zeichnet sich ab, dass nicht alle Verbrechen gleich mit dem Anteil Metro-fahrender zusammenhängen. Der stärkste Zusammenhang scheint zu Autodiebstählen und Raubüberfällen zu bestehen. Kann aber natürlich sein, dass eine dritte Variable diesen Zusammenhang treibt, z.B. der Prozentsatz unter der Armutsgrenze lebender Personen. Verwende <code>facet_grid()</code> um gleichzeitig nach Verbrechen und <code>prozent_armut</code> kleiner oder grösser 10% zu differenzieren. Wie du im Code siehst, kannst du den logischen Vergleich direkt in die Funktion schreiben.</li>
+<li>Es zeichnet sich ab, dass nicht alle Verbrechen gleich mit dem Anteil Metro-Fahrender zusammenhängen. Der stärkste Zusammenhang scheint zu Autodiebstählen und Raubüberfällen zu bestehen. Kann aber natürlich sein, dass eine dritte Variable diesen Zusammenhang treibt, z.B. der Prozentsatz unter der Armutsgrenze lebender Personen. Verwende <code>facet_grid()</code> um gleichzeitig nach Verbrechen und <code>prozent_armut</code> kleiner oder grösser 10% zu differenzieren. Wie du im Code siehst, kannst du den logischen Vergleich direkt in die Funktion schreiben.</li>
 </ol>
 <pre class="r"><code>ggplot(XX, aes(x = XX, 
                y = XX)) +
@@ -282,14 +282,14 @@ summary {
   scale_y_continuous(trans = &#39;pseudo_log&#39;) +
   facet_grid(XX &gt; 5000 ~ XX)</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>Der Zusammenhang ist verschwunden. Wir haben von Beginn an übersehen, dass viele Metro-fahrer stark mit einer hohen Bevölkerungsdichte assoziert ist und diese wiederum mit der Anzahl von Delikten. Spiele ein wenig herum. Welche Zusammenhänge kannst du noch entdecken?</li>
+<li>Der Zusammenhang ist verschwunden. Wir haben von Beginn an übersehen, dass viele Metro-fahrer stark mit einer hohen Bevölkerungsdichte assoziert ist und diese wiederum mit der Anzahl von Delikten. Wenn du magst, exploriere die Daten ein wenig weiter. Welche Zusammenhänge kannst du noch entdecken?</li>
 </ol>
 </div>
 <div id="d---themes" class="section level3">
 <h3>D - <code>theme</code>s</h3>
 <p>In diesem Abschnitt passt du deinen Lieblingsplot aus dem letzten Abschnitt mit der <code>theme()</code> Funktion an.</p>
 <ol style="list-style-type: decimal">
-<li>Zuallererst speichere deinen Plot als ein <code>gg</code> Objekt mit Namen <code>verbrechen_gg</code>.</li>
+<li>Zuallererst speichere einen deiner Plots aus dem letzten Abschnitt als ein <code>gg</code> Objekt mit Namen <code>verbrechen_gg</code>.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg &lt;- XX</code></pre>
 <ol start="2" style="list-style-type: decimal">
@@ -388,9 +388,9 @@ summary {
 </div>
 <div id="f---skalierung" class="section level3">
 <h3>F - Skalierung</h3>
-<p>In diesem Abschnitt lernst du die Skalierung von Achsen und Objekten anzupassen.</p>
+<p>In diesem Abschnitt passt du die Skalierung von Achsen und Objekten an.</p>
 <ol style="list-style-type: decimal">
-<li>Bevor du anfängst Skalierungen anzupassen, lass uns zwei weitere Elemente von <code>aes()</code> spezifizieren, damit wir mehr zu skalieren haben. Weise im Code unten <code>staat</code> dem Argument <code>col</code> zu und <code>bevoelkerung</code> dem Argument <code>size</code>. Speichere den Plot wiederum als <code>verbrechen_gg</code> und plotte den Plot einmal.</li>
+<li>Bevor du anfängst Skalierungen anzupassen, spezifizere zwei weitere Elemente von <code>aes()</code>, so damit es später mehr zu skalieren gibt. Weise im Code unten <code>staat</code> dem Argument <code>col</code> zu und <code>bevoelkerung</code> dem Argument <code>size</code>. Speichere den Plot wiederum als <code>verbrechen_gg</code> und plotte den Plot einmal.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg &lt;- ggplot(data = verbrechen, 
                         mapping = aes(x = prozent_metro, 
@@ -407,17 +407,17 @@ summary {
 
 verbrechen_gg</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Als erstes verwende <code>sclale_size()</code> und darin das <code>range</code> argument um die Grösse der Punkte zu verkleinern. Damit kannst du die Überlappung etwas verringern. Probiere ein paar Werte für die untere und obere Grenze aus, die jeweils kleiner als <code>10</code> sein sollten, um einen guten Trade-off zwischen Grösse und Überlappung zu finden.</li>
+<li>Als erstes verwende <code>scale_size()</code> und darin das <code>range</code> argument um die Grösse der Punkte zu verkleinern. Damit kannst du die Überlappung etwas verringern. Probiere ein paar Werte für die untere und obere Grenze aus, die jeweils kleiner als <code>10</code> sein sollten, um einen guten Trade-off zwischen Grösse und Überlappung zu finden.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg + scale_size(range = c(XX, XX))</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Nun ändere die Farben mit <code>scale_color_colorblind()</code> (spezifische Version von <code>scale_color_gradient()</code>), so dass die Farben auch per Helligkeit voneinander abgrenzbar sind.</li>
+<li>Nun ändere die Farben mit <code>scale_color_colorblind()</code> (spezifische Version von <code>scale_color_gradient()</code>), so dass die Farben auch hinsichtlich Helligkeit voneinander abgrenzbar sind.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg + 
   scale_size(range = c(XX, XX)) + 
   scale_color_colorblind()</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Alternativ kann man die Farbskala selbst setzen. Verwende <code>scale_color_manual()</code> und die <code>viridis()</code> Funktion aus dem <code>viridis</code> Paket (nicht vergessen zu laden) um die Farben manuell anzupassen. Viridis ist ein anderer, etablierter und etwas schönerer Farbsatz, der ebenfalls Helligkeitsunterschiede berücksichtigt.</li>
+<li>Alternativ kann man die Farbskala selbst setzen. Verwende <code>scale_color_manual()</code> und die <code>viridis()</code> Funktion aus dem <code>viridis</code> Paket (nicht vergessen zu laden) um die Farben manuell anzupassen. Viridis ist ein anderer, etablierter und schönerer Farbsatz, der ebenfalls Helligkeitsunterschiede berücksichtigt.</li>
 </ol>
 <pre class="r"><code>verbrechen_gg + 
   scale_size(range = c(XX, XX)) + 
@@ -429,7 +429,8 @@ verbrechen_gg</code></pre>
 <div id="g---bilddateien" class="section level3">
 <h3>G - Bilddateien</h3>
 <ol style="list-style-type: decimal">
-<li>Es ist an der Zeit euren Plot als eine Bilddatei zu speichern. Verwende nun <code>ggsave</code> um deinen letzten <code>verbrechen_gg</code> plot als eine <code>.pdf</code>-Datei unter dem Namen <code>verbrechen.pdf</code> zu speichern. Danach solltest du deinen Plot im Ordner <code>3_Figures</code> finden. Schaue nach und öffne die Datei.</li>
+<li><p>Es ist an der Zeit euren Plot als eine Bilddatei zu speichern. Kreiere dafür zunächst mit dem Explorer (Windows) oder Finder (Mac) in deinem Projektordner einen neuen Ordner namens <code>3_Figures</code>.</p></li>
+<li><p>Verwende nun <code>ggsave</code> um deinen letzten <code>verbrechen_gg</code> plot als eine <code>.pdf</code>-Datei unter dem Namen <code>verbrechen.pdf</code> zu speichern. Danach solltest du deinen Plot im Ordner <code>3_Figures</code> finden. Schaue nach und öffne die Datei.</p></li>
 </ol>
 <pre class="r"><code>ggsave(filename = &quot;3_Figures/verbrechen.pdf&quot;, 
        device = &quot;pdf&quot;, 
@@ -437,7 +438,7 @@ verbrechen_gg</code></pre>
        width = 4, 
        height = 4, 
        units = &quot;in&quot;)</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
 <li>Probiere ein paar Sachen aus:</li>
 </ol>
 <ul>
@@ -447,7 +448,7 @@ verbrechen_gg</code></pre>
 </div>
 <div id="x---challenges-multiple-plots" class="section level3">
 <h3>X - Challenges: Multiple Plots</h3>
-<p>In diesem Abschnitt lernst du mit dem <code>patchwork</code> Paket multiple Plots zusammenzustellen.</p>
+<p>In diesem Abschnitt kombinierst du mit dem <code>patchwork</code> Paket (nicht vergessen zu laden) multiple Plots zu einem einzelnen Plot.</p>
 <ol style="list-style-type: decimal">
 <li><p>Kreiere 3 verschiedene Plots, die jeweils <code>haeufigkeiten</code> gegen eine andere Variable im Datensatz plotten. Für eine bessere Übersicht verzichte erstmal auf <code>facet</code>s. Nenne die 3 Plots <code>verbrechen_a</code>, <code>verbrechen_b</code>, und <code>verbrechen_c</code>.</p></li>
 <li><p>Stelle alle 3 Plots nebeneinander mit <code>verbrechen_a + verbrechen_b + verbrechen_c</code>.</p></li>
