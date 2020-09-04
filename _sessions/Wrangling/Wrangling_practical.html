@@ -319,11 +319,13 @@ appointments &lt;- appointments %&gt;%
 <pre class="r"><code># Anteil nicht wahrgenommener Termine
 appointments %&gt;%
   filter(XX == XX) %&gt;%
-  nrow()
+  pull(XX) %&gt;% 
+  mean()
 
 appointments %&gt;%
   filter(XX != XX) %&gt;%
-  nrow()</code></pre>
+  pull(XX) %&gt;% 
+  mean()</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Vergleiche nun, ob es in den wahrgenommenen Terminen vielleicht Unterschiede zwischen Männern und Frauen gibt und ob es Unterschiede zwischen Patienten gibt, die mehr oder weniger als 360 Monate alt sind.</li>
 </ol>

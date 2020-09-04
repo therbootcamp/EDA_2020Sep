@@ -274,11 +274,13 @@ appointments <- appointments %>%
 # Anteil nicht wahrgenommener Termine
 appointments %>%
   filter(XX == XX) %>%
-  nrow()
+  pull(XX) %>% 
+  mean()
 
 appointments %>%
   filter(XX != XX) %>%
-  nrow()
+  pull(XX) %>% 
+  mean()
 ```
 
 ```{r}
