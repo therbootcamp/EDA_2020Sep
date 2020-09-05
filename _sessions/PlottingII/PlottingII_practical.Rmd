@@ -249,7 +249,7 @@ verbrechen_gg <- ggplot(verbrechen,
   facet_grid(bevoelkerung_dichte > 5000 ~ verbrechen)
 ```
 
-2. Ändere die Farbe des Hintergrunds des Panels zu `white`. Verwende hierzu das `panel.background` in der `theme()` Funktion und die `element_rect()` Helferfunktion.   
+2. Ändere die Farbe des Hintergrunds des Panels zu `"white"`. Verwende hierzu das `panel.background` in der `theme()` Funktion und die `element_rect()` Helferfunktion.   
 
 ```{r, echo = TRUE, eval = FALSE}
 verbrechen_gg + 
