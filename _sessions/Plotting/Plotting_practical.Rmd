@@ -139,11 +139,12 @@ ggplot(mcdonalds, aes(x = Calories, y = SaturatedFat, col = Category)) +
   geom_point()
 ```
 
-4. Ergänze `geom_smooth()` um eine angepasste Linie zu ergänzen.
+4. Ergänze `+ geom_smooth()` um eine angepasste Linie zu ergänzen.
 
 ```{r, echo = TRUE, eval = FALSE, fig.width = 6, fig.height = 4}
 ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
-  geom_point() 
+  geom_point() + 
+  geom_smooth()
 ```
 
 ```{r, fig.width = 7, fig.height = 4}

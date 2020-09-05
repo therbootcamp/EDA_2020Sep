@@ -249,10 +249,11 @@ summary {
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
   geom_point() </code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Ergänze <code>geom_smooth()</code> um eine angepasste Linie zu ergänzen.</li>
+<li>Ergänze <code>+ geom_smooth()</code> um eine angepasste Linie zu ergänzen.</li>
 </ol>
 <pre class="r"><code>ggplot(mcdonalds, aes(x = XX, y = XX, col = XX)) +
-  geom_point() </code></pre>
+  geom_point() + 
+  geom_smooth()</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Oops! Hast du mehre Linien anstatt einer bekommen? Löse das Problem indem du die Farbe innerhalb von <code>geom_smooth()</code> auf <code>black</code> setzt.</li>
 </ol>
